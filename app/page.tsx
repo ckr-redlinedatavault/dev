@@ -1,13 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Dither from "@/components/Dither";
 import { motion } from "framer-motion";
 import { ArrowRight, Globe, Terminal, Activity } from 'lucide-react';
 
 export default function DeveloperPortal() {
-  const router = useRouter();
   const [time, setTime] = useState("");
 
   useEffect(() => {
@@ -98,15 +97,15 @@ export default function DeveloperPortal() {
               transition={{ delay: 0.3 }}
               className="flex flex-wrap items-center gap-4"
             >
-              <button 
-                onClick={() => router.push('/login')}
+              <Link 
+                href="/login"
                 className="group relative px-8 py-4 bg-red-600 text-white font-black text-[10px] uppercase tracking-[0.2em] overflow-hidden transition-all"
               >
                 <div className="absolute inset-0 w-0 bg-white transition-all duration-300 group-hover:w-full" />
                 <span className="relative z-10 flex items-center gap-3 group-hover:text-black">
                   Initialize <ArrowRight size={14} />
                 </span>
-              </button>
+              </Link>
               
               <button className="px-8 py-4 border border-white/10 text-white font-black text-[10px] uppercase tracking-[0.2em] hover:bg-white/5 transition-all flex items-center gap-3 backdrop-blur-sm">
                 <Terminal size={14} className="text-red-600" /> Documentation
